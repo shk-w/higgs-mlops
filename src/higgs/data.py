@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from pathlib import Path
 
@@ -6,7 +7,14 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-ARFF_PATH = "src\\higgs\\dataset.arff"
+ROOT = Path(__file__).resolve().parents[2]
+ARFF_PATH = Path(os.environ.get("HIGGS_ARFF", ROOT / "data" / "Higgs.arff"))
+
+if not ARFF_PATH.exists():
+    raise FileNotFoundError(
+        f"{ARFF_PATH} not found. Download the Higgs dataset (OpenML id 42769) "
+        "as an ARFF file and save it there, or set the HIGGS_ARFF environment variable."
+    )
 
 
 def read_arff_header(path):

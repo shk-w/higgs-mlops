@@ -4,12 +4,13 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from data import X_test_scaled, X_train_scaled, y_test, y_train
-from model import HiggsMLP, ModelConfig, load_checkpoint, save_checkpoint
 from sklearn.metrics import accuracy_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
+
+from higgs.data import X_test_scaled, X_train_scaled, y_test, y_train
+from higgs.model import HiggsMLP, ModelConfig, load_checkpoint, save_checkpoint
 
 ARTIFACTS = Path("artifacts")
 
