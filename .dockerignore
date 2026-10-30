@@ -1,0 +1,8 @@
+venv-*/
+.git/
+__pycache__/
+.pytest_cache/
+tests/
+*.arff
+*.csv.gz
+artifacts/model_seed*.pt

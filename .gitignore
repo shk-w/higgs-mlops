@@ -1,0 +1,17 @@
+venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# data: too big for git
+*.arff
+*.csv.gz
+
+# artifacts: ignore everything except the small files the API and results need
+artifacts/*
+!artifacts/model.pt
+!artifacts/scaler.json
+!artifacts/metrics.json
+!artifacts/baselines.json
